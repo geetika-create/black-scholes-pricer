@@ -1,8 +1,8 @@
-# Protective Put Pricer
+# Black-Scholes Put Pricer
 
 **[Live Demo →](https://black-scholes-pricer-taupe.vercel.app/)**
 
-A Black-Scholes put option pricer built as an interactive trading dashboard. Drag the sliders and watch the theoretical price, Greeks, and payoff diagram update in real time.
+A Black-Scholes put option pricer built as an interactive dashboard. Drag the sliders and watch the theoretical price, Greeks, and payoff diagram update in real time.
 
 ---
 
@@ -29,25 +29,12 @@ Put = K·e^(-rT)·N(−d₂) − S·N(−d₁)
 | r | Risk-free interest rate |
 | σ | Annualised volatility |
 
-The standard normal CDF is implemented using the Abramowitz & Stegun rational approximation (1964, algorithm 26.2.17), giving a max absolute error of ~7.5×10⁻⁸.
-
 ## Tech stack
 
 - **React 18 + Vite** — component architecture, fast HMR
 - **Tailwind CSS v3** — utility styling
 - **Recharts** — payoff diagram
-- Pure JavaScript math — no external finance libraries
-
-## Run locally
-
-```bash
-git clone https://github.com/geetika-create/black-scholes-pricer.git
-cd black-scholes-pricer
-npm install
-npm run dev
-```
-
-Open `http://localhost:5173`
+- No external finance libraries
 
 ## Notes
 
