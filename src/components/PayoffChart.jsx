@@ -108,7 +108,7 @@ export default function PayoffChart({ S, K, putPrice }) {
             width={60}
           />
 
-          <ReferenceLine y={0} stroke="rgba(255,255,255,0.1)" strokeDasharray="4 2" strokeWidth={1} />
+          <ReferenceLine y={0} stroke="rgba(255,255,255,0.55)" strokeDasharray="4 2" strokeWidth={1} />
           <ReferenceLine
             x={K}
             stroke="#CFA53A"

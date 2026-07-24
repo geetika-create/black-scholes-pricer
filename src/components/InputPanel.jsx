@@ -113,6 +113,7 @@ export default function InputPanel({ values, onChange }) {
                   <button
                     onClick={() => setOpenPopup(openPopup === key ? null : key)}
                     title={`About ${label}`}
+                    className="param-badge"
                     style={{
                       fontSize: 11, fontWeight: 600, fontFamily: 'monospace',
                       color: openPopup === key ? '#FFFFFF' : '#9BA0A8',
@@ -120,7 +121,7 @@ export default function InputPanel({ values, onChange }) {
                       padding: '2px 7px', borderRadius: 6,
                       border: `1px solid ${openPopup === key ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.05)'}`,
                       cursor: 'pointer',
-                      transition: 'color 0.1s, background 0.1s',
+                      transition: 'color 0.15s, background 0.15s, transform 0.15s, box-shadow 0.15s',
                       lineHeight: 1.6,
                     }}
                   >

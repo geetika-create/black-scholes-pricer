@@ -74,3 +74,11 @@ input[type='range']::-moz-range-track {
   border-radius: 9999px;
   background: #202428;
 }
+
+/* ── Parameter badge hover ── */
+.param-badge:hover {
+  color: #FFFFFF !important;
+  background: #1D2226 !important;
+  transform: translateY(-1px) scale(1.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
