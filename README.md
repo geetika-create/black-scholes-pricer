@@ -1,16 +1,54 @@
-# React + Vite
+# Protective Put Pricer
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+**[Live Demo →](https://black-scholes-pricer-taupe.vercel.app/)**
 
-Currently, two official plugins are available:
+A Black-Scholes put option pricer built as an interactive trading dashboard. Drag the sliders and watch the theoretical price, Greeks, and payoff diagram update in real time.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## What it does
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Prices European put options** using the closed-form Black-Scholes formula
+- **Live Greeks** — Delta, Gamma, Theta (daily), and Vega (per 1% vol move) update instantly as you adjust inputs
+- **Payoff diagram** — shows three lines at expiration: unhedged stock, long put, and the combined protective put position, telling the full hedging story
+- **Collapsible formula reference** — the Black-Scholes formula is available inline for reference
 
-## Expanding the Oxlint configuration
+## The model
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```
+d₁ = [ln(S/K) + (r + σ²/2)·T] / σ√T
+d₂ = d₁ − σ√T
+Put = K·e^(-rT)·N(−d₂) − S·N(−d₁)
+```
+
+| Input | Description |
+|---|---|
+| S | Current stock price |
+| K | Strike price |
+| T | Time to expiration (years) |
+| r | Risk-free interest rate |
+| σ | Annualised volatility |
+
+The standard normal CDF is implemented using the Abramowitz & Stegun rational approximation (1964, algorithm 26.2.17), giving a max absolute error of ~7.5×10⁻⁸.
+
+## Tech stack
+
+- **React 18 + Vite** — component architecture, fast HMR
+- **Tailwind CSS v3** — utility styling
+- **Recharts** — payoff diagram
+- Pure JavaScript math — no external finance libraries
+
+## Run locally
+
+```bash
+git clone https://github.com/geetika-create/black-scholes-pricer.git
+cd black-scholes-pricer
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173`
+
+## Notes
+
+Theoretical prices only — not financial advice. The model assumes log-normal returns, constant volatility, no dividends, and continuous trading.
