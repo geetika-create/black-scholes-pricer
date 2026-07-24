@@ -49,10 +49,10 @@ export default function App() {
             </div>
             <div>
               <span style={{ fontSize: 14, fontWeight: 600, color: '#FFFFFF', letterSpacing: '-0.01em' }}>
-                Protective Put Pricer
+                Option Pricer
               </span>
               <span style={{ fontSize: 12, color: '#5B6167', marginLeft: 10 }}>
-                Black-Scholes · European
+                Black-Scholes
               </span>
             </div>
           </div>

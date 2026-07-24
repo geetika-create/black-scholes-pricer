@@ -81,7 +81,7 @@ export default function PayoffChart({ S, K, putPrice }) {
         </p>
         <p style={{ fontSize: 12, color: '#8B9099', margin: 0 }}>
           Strike <span style={{ color: '#B8BDC3' }}>${K.toFixed(0)}</span>
-          &nbsp;·&nbsp;Put cost <span style={{ color: '#B8BDC3' }}>${putPrice.toFixed(2)}</span>
+          &nbsp;·&nbsp;Option cost <span style={{ color: '#B8BDC3' }}>${putPrice.toFixed(2)}</span>
         </p>
       </div>
 
@@ -127,8 +127,8 @@ export default function PayoffChart({ S, K, putPrice }) {
           />
 
           <Line type="monotone" dataKey="stock"      name="Unhedged Stock"  stroke="#8B9099" strokeWidth={1.5} dot={false} activeDot={{ r: 3, fill: '#8B9099' }} />
-          <Line type="monotone" dataKey="put"        name="Long Put"        stroke="#E34C67" strokeWidth={1.5} dot={false} activeDot={{ r: 3, fill: '#E34C67' }} />
-          <Line type="monotone" dataKey="protective" name="Protective Put"  stroke="#19C37D" strokeWidth={2}   dot={false} activeDot={{ r: 3, fill: '#19C37D' }} />
+          <Line type="monotone" dataKey="put"        name="Long Option"     stroke="#E34C67" strokeWidth={1.5} dot={false} activeDot={{ r: 3, fill: '#E34C67' }} />
+          <Line type="monotone" dataKey="protective" name="Protective Option" stroke="#19C37D" strokeWidth={2}   dot={false} activeDot={{ r: 3, fill: '#19C37D' }} />
         </LineChart>
       </ResponsiveContainer>
 
@@ -136,8 +136,8 @@ export default function PayoffChart({ S, K, putPrice }) {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10, marginTop: 16 }}>
         {[
           { color: '#8B9099', label: 'Unhedged Stock', desc: 'Unlimited upside, unlimited downside' },
-          { color: '#E34C67', label: 'Long Put',       desc: 'Pays when stock falls below strike' },
-          { color: '#19C37D', label: 'Protective Put', desc: 'Floor on downside · full upside kept' },
+          { color: '#E34C67', label: 'Long Option',       desc: 'Pays when stock falls below strike' },
+          { color: '#19C37D', label: 'Protective Option', desc: 'Floor on downside · full upside kept' },
         ].map(({ color, label, desc }) => (
           <div key={label} style={{
             background: '#0B0D0F',

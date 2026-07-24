@@ -9,7 +9,7 @@ const SLIDER_CONFIGS = [
     max: 500,
     step: 1,
     format: (v) => `$${v.toFixed(0)}`,
-    description: 'The current market price of the underlying stock. As S rises above the strike, the put moves out-of-the-money and loses value.',
+    description: 'The current market price of the underlying stock. As S rises above the strike, the option moves out-of-the-money and loses value.',
   },
   {
     key: 'K',
@@ -19,7 +19,7 @@ const SLIDER_CONFIGS = [
     max: 500,
     step: 1,
     format: (v) => `$${v.toFixed(0)}`,
-    description: 'The price at which you have the right to sell the stock. The put is in-the-money when S < K.',
+    description: 'The price at which you have the right to sell the stock. The option is in-the-money when S < K.',
   },
   {
     key: 'T',
@@ -49,7 +49,7 @@ const SLIDER_CONFIGS = [
     max: 2.0,
     step: 0.01,
     format: (v) => `${(v * 100).toFixed(0)}%`,
-    description: 'Annualised implied volatility. The single input you cannot directly observe — higher σ means a more expensive put as the chance of a large move increases.',
+    description: 'Annualised implied volatility. The single input you cannot directly observe — higher σ means a more expensive option as the chance of a large move increases.',
   },
 ];
 
@@ -180,7 +180,7 @@ export default function InputPanel({ values, onChange }) {
             {[
               { label: 'd₁', value: '[ln(S/K) + (r + σ²/2)T] / σ√T' },
               { label: 'd₂', value: 'd₁ − σ√T' },
-              { label: 'Put', value: 'K·e⁻ʳᵀ·N(−d₂) − S·N(−d₁)', accent: true },
+              { label: 'Option', value: 'K·e⁻ʳᵀ·N(−d₂) − S·N(−d₁)', accent: true },
             ].map(({ label, value, accent }) => (
               <div key={label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16 }}>
                 <span style={{ fontSize: 11, fontFamily: 'monospace', color: '#6B7280', flexShrink: 0 }}>{label}</span>
